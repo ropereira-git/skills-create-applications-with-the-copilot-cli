@@ -1,7 +1,7 @@
 // calculator.test.js
 // Jest unit tests for calculator functions
-
-const { add, sub, mul, div, mod, exp, sqrt } = require('../calculator.functions');
+create-calc-app
+const { add, sub, mul, div, modulo, power, squareRoot } = require('../calculator.functions');
 
 describe('Calculator Basic Operations', () => {
   test('adds 2 + 3 to equal 5', () => {

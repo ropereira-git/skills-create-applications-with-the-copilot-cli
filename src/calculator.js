@@ -22,8 +22,9 @@ const { add, sub, mul, div, mod, exp, sqrt } = require('./calculator.functions')
 const [,, operation, num1, num2] = process.argv;
 
 function printUsage() {
-  console.log('Usage: node calculator.js <operation> <num1> [num2]');
-  console.log('Operations: add (+), sub (-), mul (×), div (÷), mod (%), exp (**), sqrt');
+create-calc-app
+  console.log('Usage: node calculator.js <operation> <num1> <num2>');
+  console.log('Operations: add (+), sub (-), mul (×), div (÷), mod (%), power, sqrt');
   console.log('Example: node calculator.js add 2 3');
   console.log('Example: node calculator.js sqrt 9');
 }
@@ -41,13 +42,20 @@ if (isNaN(a)) {
   process.exit(1);
 }
 
-let b;
-if (!isSqrt) {
-  b = parseFloat(num2);
-  if (isNaN(b)) {
-    console.error('Both operands must be valid numbers.');
-    process.exit(1);
+ create-calc-app
+function modulo(a, b) {
+  return a % b;
+}
+
+function power(base, exponent) {
+  return Math.pow(base, exponent);
+}
+
+function squareRoot(n) {
+  if (n < 0) {
+    throw new Error('Error: Cannot take square root of a negative number.');
   }
+  return Math.sqrt(n);
 }
 
 let result;
@@ -84,10 +92,28 @@ try {
     default:
       printUsage();
       process.exit(1);
-  }
-} catch (err) {
-  console.error(`Error: ${err.message}`);
-  process.exit(1);
+create-calc-app
+    }
+    result = a / b;
+    break;
+  case 'mod':
+  case '%':
+    result = modulo(a, b);
+    break;
+  case 'power':
+    result = power(a, b);
+    break;
+  case 'sqrt':
+    try {
+      result = squareRoot(a);
+    } catch (err) {
+      console.error(err.message);
+      process.exit(1);
+    }
+    break;
+  default:
+    printUsage();
+    process.exit(1);
 }
 
 console.log(`Result: ${result}`);

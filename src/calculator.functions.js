@@ -18,18 +18,18 @@ function div(a, b) {
   return a / b;
 }
 
-function mod(a, b) {
-  if (b === 0) throw new Error('Modulo by zero');
+create-calc-app
+function modulo(a, b) {
   return a % b;
 }
 
-function exp(a, b) {
-  return Math.pow(a, b);
+function power(base, exponent) {
+  return Math.pow(base, exponent);
 }
 
-function sqrt(a) {
-  if (a < 0) throw new Error('Square root of negative number');
-  return Math.sqrt(a);
+function squareRoot(n) {
+  if (n < 0) throw new Error('Cannot take square root of a negative number');
+  return Math.sqrt(n);
 }
 
-module.exports = { add, sub, mul, div, mod, exp, sqrt };
+module.exports = { add, sub, mul, div, modulo, power, squareRoot };

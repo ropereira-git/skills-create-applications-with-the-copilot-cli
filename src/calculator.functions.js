@@ -18,4 +18,17 @@ function div(a, b) {
   return a / b;
 }
 
-module.exports = { add, sub, mul, div };
+function modulo(a, b) {
+  return a % b;
+}
+
+function power(base, exponent) {
+  return Math.pow(base, exponent);
+}
+
+function squareRoot(n) {
+  if (n < 0) throw new Error('Cannot take square root of a negative number');
+  return Math.sqrt(n);
+}
+
+module.exports = { add, sub, mul, div, modulo, power, squareRoot };

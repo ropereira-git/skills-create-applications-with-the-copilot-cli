@@ -18,6 +18,7 @@ function div(a, b) {
   return a / b;
 }
 
+create-calc-app
 function modulo(a, b) {
   return a % b;
 }

@@ -1,6 +1,6 @@
 // calculator.test.js
 // Jest unit tests for calculator functions
-
+create-calc-app
 const { add, sub, mul, div, modulo, power, squareRoot } = require('../calculator.functions');
 
 describe('Calculator Basic Operations', () => {
@@ -19,6 +19,18 @@ describe('Calculator Basic Operations', () => {
   test('divides 20 / 5 to equal 4', () => {
     expect(div(20, 5)).toBe(4);
   });
+
+  test('mod 10 % 3 to equal 1', () => {
+    expect(mod(10, 3)).toBe(1);
+  });
+
+  test('exp 2 ** 8 to equal 256', () => {
+    expect(exp(2, 8)).toBe(256);
+  });
+
+  test('sqrt 9 to equal 3', () => {
+    expect(sqrt(9)).toBe(3);
+  });
 });
 
 describe('Calculator Edge Cases', () => {
@@ -36,5 +48,25 @@ describe('Calculator Edge Cases', () => {
 
   test('multiplication by zero', () => {
     expect(mul(0, 100)).toBe(0);
+  });
+
+  test('modulo by zero throws error', () => {
+    expect(() => mod(10, 0)).toThrow('Modulo by zero');
+  });
+
+  test('exp with zero exponent returns 1', () => {
+    expect(exp(5, 0)).toBe(1);
+  });
+
+  test('exp with negative exponent returns fraction', () => {
+    expect(exp(2, -1)).toBe(0.5);
+  });
+
+  test('sqrt of 0 returns 0', () => {
+    expect(sqrt(0)).toBe(0);
+  });
+
+  test('sqrt of negative number throws error', () => {
+    expect(() => sqrt(-4)).toThrow('Square root of negative number');
   });
 });
